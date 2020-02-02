@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Admin_Tables</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Admin Panel</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button
+            ><!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <a class="nav-link" href="index.html"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard</a
+                            >
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="layout-static.html">Static Navigation</a><a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a></nav>
+                            </div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Pages
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth"
+                                        >Authentication
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                                    ></a>
+                                    <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="login.html">Login</a><a class="nav-link" href="register.html">Register</a><a class="nav-link" href="password.html">Forgot Password</a></nav>
+                                    </div>
+                                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError"
+                                        >Error
+                                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                                    ></a>
+                                    <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
+                                        <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="401.html">401 Page</a><a class="nav-link" href="404.html">404 Page</a><a class="nav-link" href="500.html">500 Page</a></nav>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="sb-sidenav-menu-heading">Addons</div>
+                            <a class="nav-link" href="charts.html"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Charts</a
+                            ><a class="nav-link" href="tables.html"
+                                ><div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Tables</a
+                            >
+                        </div>
+                    </div>
+                    <div class="sb-sidenav-footer">
+                        <div class="small">Logged in as:</div>
+                        Start Bootstrap
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Tables</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tables</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">DataTables is a third party plugin that is used to generate the device table below. For more information about DataTables, please visit the <a target="_blank" href="404.html"> DataTables documentation</a>.</div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header"><i class="fas fa-table mr-1"></i>DataTable Example</div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                             <tr>
+                                                <th>Device Id</th>
+                                                <th>Name</th>
+                                                <th>Gender</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Device Id</th>
+                                                <th>Name</th>
+                                                <th>Gender</th>
+                                                <th>Address</th>
+                                                <th>Phone</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>0001</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>Male</td>
+                                                <td>Sukhdev Vihar</td>
+                                                <td>61097878</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0002</td>
+                                                <td>Garrett Winters</td>
+                                                <td>Male</td>
+                                                <td>Sarita Vihar</td>
+                                                <td>63235678</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0003</td>
+                                                <td>Neha Kumari</td>
+                                                <td>Female</td>
+                                                <td>Punjabi Bagh</td>
+                                                <td>66323445</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0004</td>
+                                                <td>Path Gaba</td>
+                                                <td>Male</td>
+                                                <td>Shahdara</td>
+                                                <td>22544323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0005</td>
+                                                <td>Anjali Satou</td>
+                                                <td>Female</td>
+                                                <td>Vivek Vihar</td>
+                                                <td>33234556</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0006</td>
+                                                <td>Ramesh</td>
+                                                <td>Male</td>
+                                                <td>Yamuna Vihar</td>
+                                                <td>61673256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0007</td>
+                                                <td>Pankaj Rana</td>
+                                                <td>Male</td>
+                                                <td>Dwarka</td>
+                                                <td>22454323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0008</td>
+                                                <td>Anjuu</td>
+                                                <td>Female</td>
+                                                <td>Nangloi</td>
+                                                <td>33234456</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0009</td>
+                                                <td>Hitesh Kumar</td>
+                                                <td>Male</td>
+                                                <td>Lajpat Nagar</td>
+                                                <td>6145256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0010</td>
+                                                <td>Kuwarpal</td>
+                                                <td>Male</td>
+                                                <td>Ashram</td>
+                                                <td>6148756</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0011</td>
+                                                <td>Tushar Kansal</td>
+                                                <td>Male</td>
+                                                <td>Nityanand Marg</td>
+                                                <td>99897878</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0012</td>
+                                                <td>Gaurav Saini</td>
+                                                <td>Male</td>
+                                                <td>Durga Park</td>
+                                                <td>09898778</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0013</td>
+                                                <td>Nikita Yadav</td>
+                                                <td>Female</td>
+                                                <td>Tis Hazari Court</td>
+                                                <td>67452345</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0014</td>
+                                                <td>Path Gaba</td>
+                                                <td>Male</td>
+                                                <td>Azad Market</td>
+                                                <td>22544323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0015</td>
+                                                <td>Anjali Satou</td>
+                                                <td>Female</td>
+                                                <td>Filmistan</td>
+                                                <td>33234556</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0016</td>
+                                                <td>Ramesh</td>
+                                                <td>Male</td>
+                                                <td>Model Basti</td>
+                                                <td>61673256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0017</td>
+                                                <td>Pankaj Rana</td>
+                                                <td>Male</td>
+                                                <td>Karol Bagh</td>
+                                                <td>22454323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0018</td>
+                                                <td>Anjuu</td>
+                                                <td>Female</td>
+                                                <td>Nangloi</td>
+                                                <td>33234456</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0019</td>
+                                                <td>Hitesh Kumar</td>
+                                                <td>Male</td>
+                                                <td>Janak Vihar</td>
+                                                <td>6145256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0020</td>
+                                                <td>Kuwarpal</td>
+                                                <td>Male</td>
+                                                <td>Inder Puri</td>
+                                                <td>6148756</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0021</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>Male</td>
+                                                <td>Krishi Kunj</td>
+                                                <td>61097878</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0022</td>
+                                                <td>Garrett Winters</td>
+                                                <td>Male</td>
+                                                <td>Mayapuri</td>
+                                                <td>63235678</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0023</td>
+                                                <td>Neha Kumari</td>
+                                                <td>Female</td>
+                                                <td>Hari Nagar</td>
+                                                <td>66323445</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0024</td>
+                                                <td>Path Gaba</td>
+                                                <td>Male</td>
+                                                <td>Sagarpur</td>
+                                                <td>22544323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0025</td>
+                                                <td>Anjali Satou</td>
+                                                <td>Female</td>
+                                                <td>Manglapuri</td>
+                                                <td>33234556</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0026</td>
+                                                <td>Ramesh</td>
+                                                <td>Male</td>
+                                                <td>Paharganj Delhi</td>
+                                                <td>61673256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0027</td>
+                                                <td>Pankaj Rana</td>
+                                                <td>Male</td>
+                                                <td>Dilli Haat</td>
+                                                <td>22454323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0028</td>
+                                                <td>Anjuu</td>
+                                                <td>Female</td>
+                                                <td>Lajpat Nagar</td>
+                                                <td>33234456</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0029</td>
+                                                <td>Hitesh Kumar</td>
+                                                <td>Male</td>
+                                                <td>Hauz Khas</td>
+                                                <td>6145256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0030</td>
+                                                <td>Kuwarpal</td>
+                                                <td>Male</td>
+                                                <td>Connaught Place </td>
+                                                <td>6148756</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0031</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>Male</td>
+                                                <td>Sarojini Nagar</td>
+                                                <td>61097878</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0032</td>
+                                                <td>Garrett Winters</td>
+                                                <td>Male</td>
+                                                <td>Kalka Ji </td>
+                                                <td>63235678</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0033</td>
+                                                <td>Neha Kumari</td>
+                                                <td>Female</td>
+                                                <td>Munirka</td>
+                                                <td>66323445</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0034</td>
+                                                <td>Path Gaba</td>
+                                                <td>Male</td>
+                                                <td>I.I.T. Gate</td>
+                                                <td>22544323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0035</td>
+                                                <td>Anjali Satou</td>
+                                                <td>Female</td>
+                                                <td>Masjid Moth</td>
+                                                <td>33234556</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0036</td>
+                                                <td>Ramesh</td>
+                                                <td>Male</td>
+                                                <td>Nehru Place</td>
+                                                <td>61673256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0037</td>
+                                                <td>Pankaj Rana</td>
+                                                <td>Male</td>
+                                                <td>Okhla Phase 1</td>
+                                                <td>22454323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0038</td>
+                                                <td>Anjuu</td>
+                                                <td>Female</td>
+                                                <td>Nangloi</td>
+                                                <td>33234456</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0039</td>
+                                                <td>Hitesh Kumar</td>
+                                                <td>Male</td>
+                                                <td>Govind Puri </td>
+                                                <td>6145256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0040</td>
+                                                <td>Kuwarpal</td>
+                                                <td>Male</td>
+                                                <td>Badarpur</td>
+                                                <td>6148756</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0041</td>
+                                                <td>Tiger Nixon</td>
+                                                <td>Male</td>
+                                                <td>Prahlad Pur</td>
+                                                <td>61097878</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0042</td>
+                                                <td>Garrett Winters</td>
+                                                <td>Male</td>
+                                                <td>Prem Nagar</td>
+                                                <td>63235678</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0043</td>
+                                                <td>Neha Kumari</td>
+                                                <td>Female</td>
+                                                <td>Punjabi Bagh</td>
+                                                <td>66323445</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0044</td>
+                                                <td>Path Gaba</td>
+                                                <td>Male</td>
+                                                <td>Britannia</td>
+                                                <td>22544323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0045</td>
+                                                <td>Anjali Satou</td>
+                                                <td>Female</td>
+                                                <td>Rajouri Garden</td>
+                                                <td>33234556</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0046</td>
+                                                <td>Ramesh</td>
+                                                <td>Male</td>
+                                                <td>Naraina</td>
+                                                <td>61673256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0047</td>
+                                                <td>Pankaj Rana</td>
+                                                <td>Male</td>
+                                                <td>Dhaula Kuan</td>
+                                                <td>22454323</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0048</td>
+                                                <td>Anjuu</td>
+                                                <td>Female</td>
+                                                <td>Moti Bagh</td>
+                                                <td>33234456</td>
+                                                <td>Inactive</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0049</td>
+                                                <td>Hitesh Kumar</td>
+                                                <td>Male</td>
+                                                <td>Moti Bagh</td>
+                                                <td>6145256</td>
+                                                <td>Active</td>
+                                            </tr>
+                                            <tr>
+                                                <td>0050</td>
+                                                <td>Kuwarpal</td>
+                                                <td>Male</td>
+                                                <td>South Extension</td>
+                                                <td>6148756</td>
+                                                <td>Active</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted"><b>Copyright &copy; The bug hunter 2020 (designed by Gaurav Saini)</b></div>
+                            <div>
+                                <a href="404.html">Privacy Policy</a>
+                                &middot;
+                                <a href="404.html">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/datatables-demo.js"></script>
+    </body>
+</html>
